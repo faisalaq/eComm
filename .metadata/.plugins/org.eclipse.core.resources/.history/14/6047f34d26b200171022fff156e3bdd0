@@ -1,0 +1,7 @@
+package com.springlearning.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public class ProductRepository implements JpaRepository<Product, Long>{
+
+}

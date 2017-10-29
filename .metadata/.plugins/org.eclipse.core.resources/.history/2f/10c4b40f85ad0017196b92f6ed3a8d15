@@ -1,0 +1,5 @@
+package com.springlearning.security;
+
+public class CustomUserDetails {
+
+}

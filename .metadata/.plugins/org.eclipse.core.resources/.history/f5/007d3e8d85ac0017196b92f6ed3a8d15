@@ -1,0 +1,70 @@
+package com.springlearning.domain;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Cart {
+	
+	private Long id;
+	private Integer quantity;
+	private Date dateAdded;
+	private User user;
+	private Set<Product> products = new HashSet<Product>();
+
+	@Id
+	@GeneratedValue
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(Date dateAdded) {
+		this.dateAdded = dateAdded;
+	}
+
+	@OneToOne
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@ManyToMany
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,21 @@
+package com.springlearning.security;
+
+import javax.persistence.ManyToOne;
+
+import org.springframework.security.core.GrantedAuthority;
+
+import com.springlearning.domain.User;
+
+public class Authority implements GrantedAuthority{
+
+	private String role;
+	private User user;
+	
+	@ManyToOne
+	@Override
+	public String getAuthority() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.springlearning.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import io.undertow.attribute.RequestMethodAttribute;;
+
+@Controller
+public class DashboardController {
+
+	@RequestMapping(value="/dashboard", method=RequestMethodAttribute.GET)
+	public String dashboardGet(ModelMap model){
+		
+	}
+}

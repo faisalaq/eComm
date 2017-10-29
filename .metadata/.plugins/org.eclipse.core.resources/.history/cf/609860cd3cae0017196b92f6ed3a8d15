@@ -1,0 +1,5 @@
+package com.springlearning.web;
+
+public class DashboardController {
+
+}

@@ -1,0 +1,19 @@
+package com.springlearning.service;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.util.StringUtils;
+
+public class SaveHelperService {
+
+	public static <T> T save(JpaRepository<T, Long> repo, T obj, Class<T> clazz, String fieldName, String fieldValue) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+		
+		fieldName = StringUtils.capitalize(fieldName);
+		Method method = clazz.getMethod("set"+fieldName, String.class);
+		method.invoke(obj, fieldValue);
+		return repo.save(obj);
+		
+	}
+}
