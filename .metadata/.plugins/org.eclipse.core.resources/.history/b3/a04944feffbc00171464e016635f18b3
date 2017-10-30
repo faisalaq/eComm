@@ -41,6 +41,11 @@ public class ProductController {
 //				return productRepo.save(product);		
 	}
 	
+	@Autowired
+	public void setProductRepo(ProductRepository productRepo) {
+		this.productRepo = productRepo;
+	}
+	
 	@RequestMapping(value="{productId}", method=RequestMethod.GET)
 	public String productGet(@PathVariable Long productId, ModelMap model){
 		Product product = productRepo.findOne(productId);
@@ -48,13 +53,6 @@ public class ProductController {
 		return "product";
 		
 	}
-	
-	@Autowired
-	public void setProductRepo(ProductRepository productRepo) {
-		this.productRepo = productRepo;
-	}
-	
-	
 	
 	
 }
