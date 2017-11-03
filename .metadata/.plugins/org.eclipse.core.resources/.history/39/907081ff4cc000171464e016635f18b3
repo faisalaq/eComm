@@ -500,11 +500,10 @@ left
 .overlayEditButton{
 	position: relative;
 	top: -4em;
-	margin-bottom: -2em;
+	margin-bottom: 0em;
 }
 
 .overlayDeleteButton{
-	position: relative;
-	top: 0em;
-	margin-bottom: -2.85em	
+	position: 0em;
+	top: -2.8em;
 }

@@ -498,13 +498,11 @@ left
 }
 
 .overlayEditButton{
-	position: relative;
-	top: -4em;
-	margin-bottom: -2em;
+	position: -4em;
+	top: -2em;
 }
 
 .overlayDeleteButton{
-	position: relative;
-	top: 0em;
-	margin-bottom: -2.85em	
+	position: 0em;
+	top: -2em;
 }
