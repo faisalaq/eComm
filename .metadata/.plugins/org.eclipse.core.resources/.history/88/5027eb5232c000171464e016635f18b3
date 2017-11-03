@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<title>eCommerce product</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="../../css/dashboard.css" />
+<link rel="stylesheet" href="../../css/product.css" />
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous" />
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	$(function(){
+		var formattedPrice= [[${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}]];
+		$("#price").val(formattedPrice);
+		
+		$("#price").change(function(){
+			var val = $(this).val();
+			$(this).val(parseFloat(val).toFixed(2));
+			
+		});
+		
+		$("#saveProduct").click(function(){
+			$("#frmProduct").submit();		
+		});
+	});
+	/*]]>*/
+</script>
+</head>
+<body>
+	<h1>Welcome to your dashboard</h1>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<h1>&nbsp;</h1>
+		<div class="row">
+			<div class="col-xs-12 col-sm-3">
+				<img style="width: 20em;" class="img-responsive" th:src="${product.imageUrl}" />
+			</div>
+			<form id="frmProduct" th:action="${product.id + '/edit'}" method="post">
+				<input type="hidden" th:field="${prodict.id}">
+				<div class="col-xs-12 col-sm-6 form-group">
+					<div> Image Url:</div>
+					<div>
+						<input type="text" class="form-control" placeholder="Please provide the img url" th:field="${product.imageUrl}" />
+					</div>
+					<div>Short Description:</div>
+					<div>
+						<input type="text" class="form-control" placeholder="Please provide a short descripton" th:field="${product.shortDescription}" />
+					</div>
+					<div style="margin-top: 1em;">Long Description:</div>
+					<div>
+						<textarea class="form-control" placeholder="Please provide a descripton" th:field="${product.description}"></textarea>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-3">
+					<div>
+						Price $<input type="text" th:field="${product.price}" size="5" />
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="row">
+			<button class="btn btn-primary" id="saveProduct">Save product</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../js/product.js"></script>
+</body>
+</html>
