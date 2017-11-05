@@ -40,6 +40,16 @@ $(function() {
 		
 		window.location.href="dashboard/products/" +id;
 	});
+
+	$("body").on("click", "button[id*='deleteButton']", function(){
+		var confirmBox = confirm("Are you sure you want to delete this product?");
+		if(confirmBox == true){
+			var id = $(this).attr("id");
+			id = id.split("-")[1];
+			
+			$.post("dashboard/products/" +id +"/delete");			
+		}
+	});
 	
 	$("body").on({
 		mouseenter: function(){

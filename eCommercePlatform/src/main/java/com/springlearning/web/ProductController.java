@@ -40,6 +40,17 @@ public class ProductController {
 		return "redirect:/dashboard/products/" + product.getId();
 		
 	}
+	
+	@RequestMapping(value="{productId}/delete", method=RequestMethod.POST)
+	public String deleteProduct(@PathVariable Long productId, ModelMap model){
+		Product product = productRepo.findOne(productId);
+		product.getUser().getProducts().remove(product);
+		product.setUser(null);
+		productRepo.delete(product);
+		
+		return "redirect:/dashboard/";
+		
+	}
 
 //	Java Reflection
 	@RequestMapping(value="{productId}", method=RequestMethod.POST)

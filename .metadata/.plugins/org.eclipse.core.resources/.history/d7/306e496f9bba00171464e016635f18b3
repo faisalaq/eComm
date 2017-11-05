@@ -1,8 +1,0 @@
-package com.springlearning.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.springlearning.domain.Product;
-
-public interface ProductRepository extends JpaRepository<Product, Long>{
-
-}

@@ -1,6 +1,0 @@
-package com.springlearning.security;
-
-@EnableWebSecurity
-public class SecurityConfig {
-
-}
