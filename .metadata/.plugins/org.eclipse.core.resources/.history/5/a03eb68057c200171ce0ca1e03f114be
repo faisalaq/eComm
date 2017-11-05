@@ -47,12 +47,7 @@ $(function() {
 			var id = $(this).attr("id");
 			id = id.split("-")[1];
 			
-			$.post({
-				url : "dashboard/products/" +id +"/delete",
-				success : function(){
-					location.reload();
-				}
-			});			
+			$.post("dashboard/products/" +id +"/delete");			
 		}
 	});
 	
