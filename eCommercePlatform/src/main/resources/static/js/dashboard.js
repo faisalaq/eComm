@@ -146,7 +146,7 @@ $(function() {
 			method: "post",
 			data: { "fieldName": "price",
 				"fieldValue": priceVal},
-			type: "json",
+			type: "json", 
 			success: function(product){
 				console.log(product);
 				$("#placehoderCard4-" + product.id).addClass("hidden");
@@ -165,6 +165,8 @@ $(function() {
 function showFinishedProduct(product){
 	$("#placehoderCard4-"+product.id).after("<div id=\"productCard-"+product.id+"\">" +
 			"<img class=\"center-block\" src='"+product.imageUrl+"'/>" +
+			"<button class=\"btn btn-info center-block overlayEditButton hidden\" id=\"editButton-" +product.id +"\">Edit</button>"+
+			"<button class=\"btn btn-danger center-block overlayDeleteButton hidden\" id=\"deleteButton-" +product.id +"\">Delete</button>"+
 			"<p>"+product.shortDescription+"</p>" +
 			"$" + product.price +
 			"</div>");

@@ -1,0 +1,26 @@
+package com.springlearning.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.springlearning.repository.ProductRepository;
+
+@Controller
+public class ECommerceStoreController {
+	
+	private ProductRepository productRepo;
+	
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public String rootGet(){
+		return "store";
+	}
+
+	@Autowired
+	public void setProductRepo(ProductRepository productRepo) {
+		this.productRepo = productRepo;
+	}
+	
+	
+}
