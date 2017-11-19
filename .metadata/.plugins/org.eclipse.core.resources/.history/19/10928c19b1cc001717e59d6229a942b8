@@ -1,0 +1,31 @@
+package com.springlearning.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.springlearning.domain.Product;
+import com.springlearning.repository.ProductRepository;
+
+@Controller
+@RequestMapping("products")
+public class ConsumerProductController {
+
+	private ProductRepository productRepo;
+	
+	@RequestMapping("{productId}", method=Requestmethod.GET)
+	public String viewProduct(@PathVariable Long productId, ModelMap model){
+		Product product = productRepo.findOne(productId);
+		model.put("product", product);
+		return "product";
+	}
+	
+	@Autowired
+	public void setProductRepo(ProductRepository productRepo) {
+		this.productRepo = productRepo;
+	}
+	
+	
+}

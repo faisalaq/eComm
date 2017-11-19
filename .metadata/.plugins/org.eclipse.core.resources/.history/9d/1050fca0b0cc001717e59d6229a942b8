@@ -1,0 +1,22 @@
+package com.springlearning.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.springlearning.repository.ProductRepository;
+
+@Controller
+@RequestMapping("products")
+public class ConsumerProductController {
+
+	private ProductRepository productRepo;
+	public String viewProduct(@PathVariable Long productId, ModelMap model){
+		
+		
+		return "product";
+	}
+	
+	
+}

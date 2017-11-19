@@ -1,0 +1,15 @@
+$(function(){
+	$("#addToCart").click(function(){
+		$.ajax({
+			url: "",
+			method: 'post',
+			type:'json',
+			success: function(){
+				//css code to show number overlay on shopping cart icon
+			},
+			error: function(){
+				console.log("error adding product to cart");
+			}
+		});
+	});
+});

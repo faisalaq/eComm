@@ -1,0 +1,5 @@
+package com.springlearning.domain;
+
+public class Order {
+
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://thymeleaf.org">
-<head></head>
+<head>
+</head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top" th:fragment="header">
 		<div class="container-fluid">
@@ -16,6 +17,8 @@
 					<li><a href="/dashboard"></a>Dashboard</li>
 					<li><a href="#"><img class="profile-pic"
 							src="/images/ecommerce.png" /></a></li>
+					<li sec:authorize="hasRole('ROLE_USER')"><button class="btn btn-default" style="margin: 0.5em 2em 0em 1em" id="login">Login</button></li>
+					
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false"><img class="profile-pic"
@@ -29,6 +32,13 @@
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
+		<script type="text/javascript">
+			$(function() {
+				$("#login").click(function() {
+					window.location.href = "/login";
+				});
+			});
+		</script>
 		<!-- /.container-fluid -->
 	</nav>
 </body>
